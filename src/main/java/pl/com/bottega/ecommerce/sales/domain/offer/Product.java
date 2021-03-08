@@ -5,17 +5,15 @@ import java.math.BigDecimal;
 public class Product {
 
     private String id;
-    private BigDecimal price;
     private String name;
     private String type;
-    private String currency;
+    private Money productPrice;
 
-    public Product(String id, BigDecimal price, String name, String type, String currency) {
+    public Product(String id, Money productPrice, String name, String type) {
         this.id = id;
-        this.price = price;
+        this.productPrice = productPrice;
         this.name = name;
         this.type = type;
-        this.currency = currency;
     }
 
     @Override
@@ -37,11 +35,11 @@ public class Product {
         } else if (!name.equals(other.name)) {
             return false;
         }
-        if (price == null) {
-            if (other.price != null) {
+        if (productPrice== null) {
+            if (other.productPrice != null) {
                 return false;
             }
-        } else if (!price.equals(other.price)) {
+        } else if (!productPrice.equals(other.productPrice)) {
             return false;
         }
         if (id == null) {
@@ -66,7 +64,7 @@ public class Product {
         final int prime = 31;
         int result = 1;
         result = prime * result + (name == null ? 0 : name.hashCode());
-        result = prime * result + (price == null ? 0 : price.hashCode());
+        result = prime * result + (productPrice == null ? 0 : productPrice.hashCode());
         result = prime * result + (id == null ? 0 : id.hashCode());
         result = prime * result + (type == null ? 0 : type.hashCode());
         return result;
@@ -86,11 +84,11 @@ public class Product {
         } else if (!name.equals(other.name)) {
             return false;
         }
-        if (price == null) {
-            if (other.price != null) {
+        if (productPrice == null) {
+            if (other.productPrice != null) {
                 return false;
             }
-        } else if (!price.equals(other.price)) {
+        } else if (!productPrice.equals(other.productPrice)) {
             return false;
         }
         if (id == null) {
@@ -111,8 +109,8 @@ public class Product {
         return id;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public Money getProductPrice() {
+        return productPrice;
     }
 
     public String getName() {
