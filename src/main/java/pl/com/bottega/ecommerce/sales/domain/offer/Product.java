@@ -35,7 +35,7 @@ public class Product {
         } else if (!name.equals(other.name)) {
             return false;
         }
-        if (productPrice== null) {
+        if (productPrice == null) {
             if (other.productPrice != null) {
                 return false;
             }
