@@ -39,13 +39,13 @@ public class OfferItem {
 
     private BigDecimal discount;
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity) {
+    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
+            int quantity) {
         this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
     }
 
-    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-            String productType, int quantity, BigDecimal discount, String discountCause) {
+    public OfferItem(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate, String productType,
+            int quantity, BigDecimal discount, String discountCause) {
         this.productId = productId;
         this.productPrice = productPrice;
         this.productName = productName;
@@ -61,7 +61,8 @@ public class OfferItem {
             discountValue = discountValue.subtract(discount);
         }
 
-        this.totalCost = productPrice.multiply(new BigDecimal(quantity)).subtract(discountValue);
+        this.totalCost = productPrice.multiply(new BigDecimal(quantity))
+                                     .subtract(discountValue);
     }
 
     public String getProductId() {
