@@ -77,6 +77,7 @@ public class OfferItem {
         final int prime = 31;
         int result = 1;
         result = prime * result + (discount == null ? 0 : discount.hashCode());
+        result = prime * result + (product == null ? 0 : product.hashCode());
         result = prime * result + quantity;
         result = prime * result + (totalCost == null ? 0 : totalCost.hashCode());
         return result;
@@ -94,6 +95,13 @@ public class OfferItem {
             return false;
         }
         OfferItem other = (OfferItem) obj;
+        if (product == null) {
+            if (other.product != null) {
+                return false;
+            }
+        } else if (!product.equals(other.product)) {
+            return false;
+        }
         if (discount == null) {
             if (other.discount != null) {
                 return false;
@@ -124,6 +132,10 @@ public class OfferItem {
     public boolean sameAs(OfferItem other, double delta) {
 
         if (quantity != other.quantity) {
+            return false;
+        }
+
+        if(!product.sameAs(other.product)) {
             return false;
         }
 
